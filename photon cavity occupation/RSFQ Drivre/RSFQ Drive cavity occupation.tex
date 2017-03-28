@@ -1,0 +1,68 @@
+
+\documentclass[12pt,reqno]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+
+% See the ``Article customise'' template for come common customisations
+
+\title{RSFQ driven cavity photon number}
+\author{Matthew Beck}
+\date{May 12, 2016} % delete this line to display the current date
+
+%%% BEGIN DOCUMENT
+\begin{document}
+\setlength{\parindent}{0pt}
+
+\maketitle
+%\tableofcontents
+
+%\section{}
+%\subsection{}
+
+Here we describe how to back out cavity photon number for a steady train of RSFQ Pulses. We start by calculating the input power for an RSFQ pulse.
+
+\begin{equation}
+P_\text{in} = P_{\text{App}}/Q_c = P_\text{App}\times\frac{\omega C_c^2 R_l}{C_T},
+\end{equation}
+
+Where $P_\text{App}$ is the applied power at the resonator input, $\omega$ is frequency, $R_l$ is the load impedance, and $C_c$ and $C_T$ are the coupling and total capacitance, respectively. Now, the applied power, $P_\text{app}$ can be calculated as follows
+
+\begin{equation}
+P_\text{App} = \frac{V^2}{R_l}
+\end{equation}
+
+Inserting (2) into (1) yields
+
+\begin{equation}
+P_\text{in} = \frac{\omega C_c^2 V^2}{C_T}
+\end{equation}
+
+We can now define the voltage of the SFQ pulse in terms of the magnetic flux quantum and the drive frequency
+
+\begin{equation}
+V_\text{SFQ} = \Phi_0 \times \omega
+\end{equation}
+
+inserting (4) in (3)
+
+\begin{equation}
+P_\text{in} = \frac{\omega^3 C_c^2 \Phi_0^2}{C_T}
+\end{equation}
+
+If we then define Power as $P = E\times\omega$ we then find that we arrive at the same energy per pulse calculated by Robert McDermott, et al in \textit{Accurate Qubit Control with Single Flux Quantum Pulses}, PRA (2014) modulo a factor of 2.
+
+\begin{eqnarray}
+E_\text{in} = \frac{P_\text{in}}{\omega} = \frac{\omega^2 C_c^2 \Phi_0^2}{C_T} \\
+E_\text{in}^\text{McDermott} = \frac{1}{2} \times \frac{\omega^2 C_c^2 \Phi_0^2}{C_T}
+\end{eqnarray}
+
+I am assuming this factor of 2 comes from some averaging not explicitly stated in the McDermott paper. Now that we have the power leaking into the cavity, we can now calculate the average photon number using the relation
+
+\begin{equation}
+\bar{n} = P_\text{App}\left(\frac{Q_T^2}{Q_c \hbar \omega^2}\right) = P_\text{in}  \left(\frac{Q_T^2}{\hbar \omega^2} \right)
+\end{equation}
+
+
+
+\end{document}

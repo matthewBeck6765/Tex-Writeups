@@ -1,0 +1,79 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+% See the ``Article customise'' template for come common customisations
+\usepackage{nomencl}
+\makenomenclature
+\title{\vspace{-1.7cm}Derivation of cavity photon number}
+\author{Matthew Beck}
+\date{\vspace{-.5cm}April 30, 2016} % delete this line to display the current date
+%\setlength{\droptitle}{-10em} 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\maketitle
+\setlength{\parindent}{0pt}
+
+%$\omega$ $\text{P}_\text{App}$
+\nomenclature{$\omega_r$}{Resonant cavity frequency}
+\nomenclature{$P_\text{in}$}{Power leaking into cavity}
+\nomenclature{$P_\text{out}$}{Power leaking out of cavity}
+\nomenclature{$P_\text{App}$}{Applied power at input of resonator}
+\nomenclature{$P_\text{cav}$}{Cavity photon power}
+\nomenclature{$Q_i$}{Internal quality factor}
+\nomenclature{$Q_c$}{Coupling quality factor}
+\nomenclature{$Q_T$}{Total quality factor}
+\nomenclature{$\kappa_i$}{Photon loss rate due to internal dissipation}
+\nomenclature{$\kappa_c$}{Photon loss rate due to leakage}
+\nomenclature{$\kappa_T$}{Total photon loss rate}
+\printnomenclature[6cm]
+
+\section*{Derivation}
+
+The power leaking into a cavity is proportional to the applied power at the cavity input capacitor (inductor) mediated by the coupling strength
+
+\begin{equation}
+P_{\text{in}} = P_{\text{App}} \frac{\kappa_c}{\omega_r} = \frac{P_{\text{App}}}{Q_c}
+\end{equation}
+
+Additionally, the power leaking \textit{out} of a cavity is a linear combination of the power dissipated in the cavity and the power that leaks back out of the coupling capacitor(s).
+
+\begin{equation}
+P_{\text{out}} = P_{\text{cav}} \frac{\kappa_c + \kappa_i}{\omega_r} = \frac{P_{\text{cav}}}{Q_T}
+\end{equation}
+
+At equilibrium, the powers leaking into and out of the cavity will be equal yielding
+
+\begin{equation}\label{relation}
+P_{\text{cav}} = P_{\text{App}} \frac{Q_T}{Q_c} 
+\end{equation}
+\setlength{\parindent}{0pt}
+In the absence of applied power, we can think of the resonator as an energy source that delivers power at a rate
+
+\begin{equation}\label{Pcav}
+P_{\text{cav}} = \bar{n}\hbar \omega \kappa_T= \frac{\bar{n} \hbar \omega^2}{Q_T}
+\end{equation}
+Equating equations \eqref{relation} and \eqref{Pcav} we find that
+
+\begin{equation}
+\bar{n} = P_\text{App} \times \left(\frac{Q_T^2}{Q_c \hbar \omega^2}\right)
+\end{equation}
+
+where 
+
+\begin{equation}
+Q_T = \left( \frac{1}{Q_c} + \frac{1}{Q_i} \right)^{-1}
+\end{equation}
+
+
+
+
+
+
+
+
+
+\end{document}

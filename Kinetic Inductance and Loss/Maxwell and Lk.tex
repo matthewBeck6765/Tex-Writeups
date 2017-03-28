@@ -1,0 +1,51 @@
+
+\documentclass[12pt]{article}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+
+% See the ``Article customise'' template for come common customisations
+
+
+\usepackage{amsmath}
+%%% BEGIN DOCUMENT
+\begin{document}
+
+Explanation of increase in quality factor through Maxwell's equations. \\
+
+EMF from a time variant flux
+
+\begin{equation}
+\mathcal{EMF} =  -\frac{d\Phi}{dt} 
+\end{equation}
+
+The magnetic flux is defined as
+
+\begin{equation}
+\Phi = IL_k
+\end{equation}
+
+Where the inductance of importance is the kinetic inductance. \\
+
+$L_k$ can be found through integration of the current density
+
+\begin{equation}
+L_k = \mu_0 \lambda^2 \frac{\int j^2 dA}{\left[\int j dA\right]^2}
+\end{equation}
+
+The AC current in the wire can be defined as
+
+\begin{equation}
+I(t) = I_0 e^{i\omega t} = e^{i\omega t}\int jdA
+\end{equation}
+
+substituting (2) (3) (4) into (1) yields
+
+\begin{equation}
+\mathcal{EMF} = L_k \frac{dI}{dt} = i \omega \mu_0 \lambda^2 e^{i \omega t} \frac{\int j^2 dA}{\int j dA}
+\end{equation}
+
+Equation (5) shows explicitly that by adjusting the form of the current density (Through the geometry of the CPW) one adjusts the induced EMF experienced by the lossy thermally excited quasiparticles.
+
+
+\end{document}

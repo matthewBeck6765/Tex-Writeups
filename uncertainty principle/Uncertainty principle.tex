@@ -1,0 +1,74 @@
+
+\documentclass[12pt]{article}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage{amsmath}
+\usepackage{braket}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\section{Uncertainty Principle}
+
+\[
+\sigma_x \sigma_p \geq \frac{\hbar}{2}
+\]
+
+consequence of wave like nature of particle from de Broglie hypothesis
+
+\begin{center}
+Non relativistic de Broglie relation
+\end{center}
+
+\[
+\hbar k = m v
+\]
+
+\[
+\hbar \frac{2\pi}{\lambda} = m v
+\]
+
+\[
+\lambda = \frac{h}{mv}
+\]
+
+Momentum and position are conjugate variables of one another. Wave function is either space is related to the other via a Fourier Transform.
+
+\[
+\psi(x) = \int \limits_{-\infty}^\infty \phi(p) e^{ipx} dp
+\]
+
+Variance in a variable
+
+\[
+\sigma_x^2 = \braket{x^2} - \braket{x}^2
+\]
+
+\[
+\braket{x} = \int \limits_{-\infty}^\infty x |\psi(x)|^2 dx
+\]
+
+\[
+f = x\cdot\psi(x)
+\]
+
+\[
+g = p\cdot\phi(p)
+\]
+Cauchy-Schwartz Inequality
+
+\[
+\sigma_x^2 \sigma_p^2 \geq |\braket{f|g}|^2
+\]
+
+\[
+z = \braket{f|g}
+\]
+
+\[
+|\braket{f|g}|^2 = |z|^2 = \Re[{z}]^2 + \Im[{z}]^2 \geq \Im[{z}]^2 = \left(\frac{z - z^*}{2i}\right)^2
+\]
+
+
+
+\end{document}

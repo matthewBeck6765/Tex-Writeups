@@ -1,0 +1,20 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\omega_r$}]\begingroup Resonant cavity frequency\nomeqref {0}
+		\nompageref{1}
+  \item [{$C_\text{Res}$}]\begingroup Resonator Capacitance\nomeqref {0}
+		\nompageref{1}
+  \item [{$C_c$}]\begingroup Coupling Capacitance\nomeqref {0}
+		\nompageref{1}
+  \item [{$L_\text{Res}$}]\begingroup Resonator Inductance\nomeqref {0}
+		\nompageref{1}
+  \item [{$M$}]\begingroup Coupling Inductance\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_c^C$}]\begingroup Capacitive coupling quality factor\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_c^L$}]\begingroup Inductive Coupling quality factor\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}

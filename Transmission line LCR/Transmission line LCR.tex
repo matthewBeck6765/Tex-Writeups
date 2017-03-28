@@ -1,0 +1,198 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+% See the ``Article customise'' template for come common customisations
+\usepackage{nomencl}
+\makenomenclature
+\title{\vspace{-1.7cm}Relating Transmission Line Resonators To Lumped Elements}
+\author{Matthew Beck}
+\date{\vspace{-.5cm}July 19, 2016} % delete this line to display the current date
+%\setlength{\droptitle}{-10em} 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\maketitle
+\setlength{\parindent}{0pt}
+
+\nomenclature{$\omega_0$}{Resonant cavity frequency}
+\nomenclature{$\omega$}{Frequency}
+\nomenclature{$Z_{\text{in}}$}{Impedance looking into the transmission line}
+\nomenclature{$Z_0$}{Characteristic Impedance of transmission line}
+\nomenclature{$\beta$}{Propagation constant}
+\nomenclature{$\alpha$}{Attenuation constant}
+\nomenclature{$l$}{Resonator length}
+\nomenclature{$R$}{Equivalent Resistance}
+\nomenclature{$C$}{Equivalent capacitance}
+\nomenclature{$L$}{Equivalent Inductance}
+\nomenclature{$C'$}{Capacitance per unit length}
+\nomenclature{$L'$}{Inductance per unit length}
+\printnomenclature[6cm]
+\vspace{1cm}
+
+\textbf{\underline{Open Circuited $\lambda$/2 line}}\\
+
+\textbf{Input Impedance} \\
+
+\begin{equation}
+Z_{\text{in}} = Z_0\left( \frac{1 + i\tan(\beta l)\tanh(\alpha l)}{\tanh(\alpha l) + i \tan(\beta l)} \right)
+\end{equation}
+
+\textbf{Approximations} \\
+
+\begin{eqnarray}
+\tanh(\alpha l) \rightarrow \alpha l \\
+\tan(\beta l) \rightarrow \pi \frac{\Delta \omega}{\omega_0} \\
+\tanh(\alpha l)\tan(\beta l) = \pi \frac{\Delta \omega}{\omega_0}\alpha l \ll 0
+\end{eqnarray}
+
+\textbf{Equivalent $Z_{\text{in}}$}
+
+\begin{equation}
+Z_{\text{in}} \approx \frac{Z_0/\alpha l}{1 + i \frac{\pi}{\alpha l \omega_0}(\omega - \omega_0)}
+\end{equation}
+
+\textbf{LRC Resonator}
+
+\begin{equation}
+Z_{\text{LCR}} = \left(\frac{1}{R} + \frac{1}{i\omega L} + i\omega C\right)^{-1} \approx \frac{R}{1 + i2RC(\omega - \omega_0)}
+\end{equation}
+
+\textbf{Equate the two impedances}
+
+\begin{equation}
+\frac{Z_0/\alpha l}{1 + i \frac{\pi}{\omega_0 \alpha l}(\omega - \omega_0)} = \frac{R}{1 + i2RC(\omega - \omega_0)}
+\end{equation}
+
+\begin{eqnarray}
+R = \frac{Z_0}{\alpha l}
+\end{eqnarray}
+
+\begin{subequations}
+	\begin{equation}
+	2RC = \frac{\pi}{\omega_0 \alpha l}
+	\end{equation}
+	\begin{equation}
+	2\ \frac{Z_0}{\alpha l} C = \frac{\pi}{\omega_0 \alpha l}
+	\end{equation}
+	\begin{equation}
+	C = \frac{\pi}{2\omega_0 Z_0} \label{Pozar}
+	\end{equation}
+\end{subequations}
+
+We see now that Eq. (\ref{Pozar}) matches correctly with the form given in equation 6.34b of Pozar. We can take this a step further an related the lumped element capacitance to the CPW capacitance per unit length in the following way..
+
+\begin{subequations}
+	\begin{equation}
+	Z_0 = \sqrt {\frac{L'}{C'} }
+	\end{equation}
+	\begin{equation}
+	v_\text{ph} = \frac{1}{\sqrt{L'C'}}
+	\end{equation}
+	\begin{equation}
+	\lambda = \frac{2\pi}{\beta} = \frac{2\pi}{\omega_0\sqrt{L'C'}} \label{lambda}
+	\end{equation}
+	\begin{equation}
+	\lambda = 2l
+	\end{equation}
+	\begin{equation}
+	2l = \frac{2\pi}{\beta} = \frac{2\pi}{\omega_0\sqrt{L'C'}} \rightarrow \omega_0 = \frac{\pi}{l\sqrt{L'C'}} \label{Sub}
+	\end{equation}
+\end{subequations}
+\\ \ \\
+We now substitute \ref{Sub} into \ref{Pozar} and obtain
+
+
+\begin{equation}
+	C = \frac{\pi}{2\omega_0 Z_0} = \frac{\pi}{2} \frac{l \sqrt{L'C'}}{\pi} \sqrt{\frac{C'}{L'}} = \frac{C' l}{2} \label{cHalf}
+\end{equation}
+\\ \ \\
+ Which is Eq.(12) in Goppl \textit{et al}, Coplanar waveguide resonators for circuit quantum electrodynamics. We can now calculate the equivalent inductance as a function of inductance per unit length as follows.
+ 
+ \begin{subequations}
+ 	\begin{equation}
+	L = \frac{1}{\omega_0^2 C}
+	\end{equation}
+	\begin{equation}
+	L = \frac{1}{\frac{\pi^2}{l^2 L'C'} \frac{C' l}{2} } = \frac{2 L' C' l^2}{\pi^2 C' l} = \frac{2 L' l}{\pi^2} \label{Ind}
+	\end{equation}
+ \end{subequations}
+ \\ \ \\
+ Equation (\ref{Ind}) matches equation (11) from Goppl modulo $1/n^2$ where $n$ in the harmonic of the driven frequency, which, in almost all cases, is 1.
+\\ \ \\
+\textbf{\underline{Short Circuited $\lambda$/4 line}} \\
+
+In much the same way we derived the equivalent inductance and capacitance for a half-wave resonator, we can do so for a quarter-wave resonator. \\
+
+\textbf{Input Impedance}
+
+\begin{equation}
+Z_\text{in} = Z_0 \frac{1 - i \tanh (\alpha l) \cot(\beta l)}{\tanh(\alpha l) - i\cot(\beta l)}
+\end{equation}
+
+\textbf{Approximations}
+
+\begin{eqnarray}
+\tanh(\alpha l) \rightarrow \alpha l \\
+\cot(\beta l) = - \frac{\pi \Delta\omega}{2\omega_0}
+\end{eqnarray}
+
+\textbf{Equivalent $Z_\text{in}$}
+
+\begin{equation}
+Z_\text{in} \approx = \frac{Z_0/\alpha l}{1 + i \frac{\pi}{2 \alpha l}\Delta \omega / \omega_0}
+\end{equation}
+
+\textbf{LRC Resonator}
+
+\begin{equation}
+Z_{\text{LCR}} = \left(\frac{1}{R} + \frac{1}{i\omega L} + i\omega C\right)^{-1} \approx \frac{R}{1 + i2RC(\omega - \omega_0)}
+\end{equation}
+
+\textbf{Equate the two impedances}
+
+\begin{eqnarray}
+\frac{Z_0/\alpha l}{1 + i \frac{\pi}{2 \alpha l}\Delta \omega / \omega_0} &=& \frac{R}{1 + i2RC(\omega - \omega_0)} \\
+R &=& \frac{Z_0}{\alpha l}
+\end{eqnarray}
+
+\begin{subequations}
+	\begin{equation}
+	2RC = \frac{\pi}{2\omega_0 \alpha l}
+	\end{equation}
+	\begin{equation}
+	2\frac{Z_0}{\alpha l}C = \frac{\pi}{2\omega_0 \alpha l}
+	\end{equation}
+	\begin{equation}
+	C = \frac{\pi}{4\omega_0 Z_0} \label{PozarQuarter}
+	\end{equation}
+\end{subequations}
+
+We see now that Eq.(\ref{PozarQuarter}) matches equation (6.30b) from Pozar. We can now relate this to the capacitance per unit length by substituting $\lambda = 4l$ into Eq.\ref{lambda}.
+
+\begin{equation}
+4l = \frac{2\pi}{\beta} = \frac{2\pi}{\omega_0\sqrt{L'C'}} \rightarrow \omega_0 = \frac{\pi}{2l\sqrt{L'C'}} \label{Sub4}
+\end{equation}
+\\ \ \\
+We now substitute (\ref{Sub4}) into (\ref{PozarQuarter}) which yields
+
+\begin{equation}
+C = \frac{\pi}{4 \frac{\pi}{2l \sqrt{L'C'}} \sqrt{\frac{L'}{C'}}} = \frac{2 \pi C' l}{4\pi} = \frac{C' l}{2} \label{cQuarter}
+\end{equation}
+\\ \ \\
+We can see at one that Eq.(\ref{cQuarter}) and Eq.(\ref{cHalf}) are equivalent. This equivalency may seem odd at first glance until one remembers that the $l$ in (\ref{cQuarter}) is half as long as the $l$ in (\ref{cHalf}). The equivalent inductance can be calculated in the same straightforward manner as in (\ref{Ind}).
+
+\begin{subequations}
+	\begin{equation}
+	L = \frac{1}{\omega_0^2 C}
+	\end{equation}
+	\begin{equation}
+	L = \frac{1}{\frac{\pi^2}{4l^2 L'C'}\frac{C' l}{2}} = \frac{8 l^2 L' C'}{\pi^2 l C'} = \frac{8 L' l}{\pi^2}
+	\end{equation}
+\end{subequations}
+
+
+
+\end{document}

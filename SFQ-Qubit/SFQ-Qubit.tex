@@ -1,0 +1,100 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+% See the ``Article customise'' template for come common customisations
+\usepackage{nomencl}
+\makenomenclature
+\title{\vspace{-1.7cm}SFQ - Qubit Parameters}
+\author{Matthew Beck}
+\date{\vspace{-.5cm}July 22, 2016} % delete this line to display the current date
+%\setlength{\droptitle}{-10em} 
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\maketitle
+\setlength{\parindent}{0pt}
+
+\nomenclature{$W$}{CPW Center trace width}
+\nomenclature{$S$}{CPW Gap width}
+\nomenclature{$C_c^\text{Driver}$}{Coupling capacitance between CPW resonator and SFQ driver}
+\nomenclature{$L_c$}{Coupling inductance between resonator and feedline}
+\nomenclature{$Z_\text{CPW}$}{CPW Impedance}
+\nomenclature{$\omega_0$}{Angular frequency}
+\nomenclature{$Q_c^\text{ind}$}{Inductive coupling quality factor}
+%\nomenclature{$\beta$}{Propagation constant}
+%\nomenclature{$\alpha$}{Attenuation constant}
+%\nomenclature{$l$}{Resonator length}
+%\nomenclature{R}{Equivalent Resistance}
+%\nomenclature{C}{Equivalent capacitance}
+%\nomenclature{L}{Equivalent Inductance}
+\printnomenclature[6cm]
+\vspace{1cm}
+
+
+For our CPW resonators, W and S are fixed at 10 and 6 $\mu$m, respectively. On silicon ($\epsilon_\text{Rel}$ = 11.7), this gives an impedance of 
+\begin{eqnarray}
+W &=& 10 \, \mu\text{m} \\
+S &=& 6 \, \mu\text{m}\\
+Z_\text{CPW} &\approx& 51 \, \Omega
+\end{eqnarray}
+as calculated with QUCS transmission line software.
+
+We want to aim for frequencies of 6.55 and 6.45 GHz. The correct lengths of CPW lines for these bare frequencies for a relative dielectric constant $\epsilon_\text{rel} = 11.7$ are
+
+\begin{table}[h]
+%\caption{default}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\textbf{Freq (GHz)} 	& \textbf{l (mm)} 	& \textbf{angle (deg)} \\
+\hline
+6.65			& 4.50	& 89.94 \\
+6.55			& 4.57	& 90.14 \\
+\end{tabular}
+\end{center}
+%\label{default}
+\end{table}%
+
+These frequencies will be pulled down by both the capacitive coupling to the sfq driver and inductive coupling to the feedline. The equivalent capacitance and inductance for a quarter-wavelength CPW line as given by Pozar is
+
+\begin{eqnarray}
+C_\text{Equiv} = \frac{\pi}{4 \omega_0 Z_\text{CPW}} = 3.85\times 10^{-13}  \, \text{F}\\
+L_\text{Equiv} = \frac{1}{\omega_0^2 C_\text{Equiv}} = \frac{4 Z_\text{CPW}}{\omega_0 \pi} = 1.56\times 10^{-9} \, \text{H}
+\end{eqnarray}
+
+Shaojiang asked to have $C_c^\text{Driver} = 6, \,12$ fF coupling to the SFQ driver. These are $C_c^\text{Driver}/C_\text{Equiv}\times 100 =  1.56, 3.12$\% corrections to the total capacitance. Additionally, a desired coupling Q of $1\times10^5$ yields for its coupling inductance
+
+\begin{equation}
+Q_c^\text{ind} = \frac{2Z_\text{CPW}L_\text{Equiv}}{\omega_0 L_c^2} \rightarrow L_c = \sqrt{\frac{2Z_\text{CPW}L_\text{Equiv}}{\omega_0 Q_c^\text{ind}}} = 6.18 \, \text{pH}
+\end{equation}
+
+This inductance is a $L_c/L_\text{Equiv} \times 100 = 0.4$\% correction to the total inductance. We can sub the added reactive elements and calculate a new resonator frequency.
+
+\begin{eqnarray}
+\omega^2 &= &\frac{1}{L_TC_T} = \frac{1}{(L_\text{Equiv} + L_c)(C_\text{Equiv} + C^\text{Driver}_c)} \\
+\omega^2 &=& \frac{1}{(L_\text{Equiv} + L_\text{Equiv}/250)(C_\text{Equiv} + C_\text{Equiv}/40)} \\
+\omega^2 &=& \frac{1}{(251/250)L_\text{Equiv}(41/40)C_\text{Equiv}} \\
+\omega^2 &=& \left(\frac{100}{103}\right)\frac{1}{L_\text{Equiv}C_\text{Equiv}}\\
+\omega^2 &=& \left(\frac{100}{103}\right) \omega_0^2 \\
+\frac{\omega}{\omega_0} &=& 0.985
+\end{eqnarray}
+ 
+ We see now that there is a 1.5\% correction to the resonant frequency of the circuit due the the capacitive and inductive loading. Since the total geometic inductance  and capacitance scales with length, we see that resonant frequency must also scale with length thus the 1.5\% correction can be applied directly to the length of the resonator yielding
+ 
+ \begin{table}[h]
+%\caption{default}
+\begin{center}
+\begin{tabular}{|c|c|}
+\textbf{Freq (GHz)} 	& \textbf{l$_\text{Corrected}$ (mm)}  \\
+\hline
+6.65			& 4.925 \\	
+6.55			& 5.004 \\
+\end{tabular}
+\end{center}
+%\label{default}
+\end{table}%
+
+
+\end{document}

@@ -1,0 +1,201 @@
+
+\documentclass[12pt]{article}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage{amsmath}
+
+
+
+\begin{document}
+\setlength{\parindent}{0 pt}
+
+\begin{center}
+$S_{11}$ derivation
+\end{center}
+I have approximated our resonator as a shunted open ended half-wave resonator.
+
+The impedance for an open ended half-wave resonator from Pozar is
+
+\[
+Z = \frac{Z_0}{\alpha l + i \pi \Delta \omega_{1/2}/\omega_{1/2}}
+\]
+
+Where
+
+\[
+\Delta \omega_{1/2} = \omega - \omega_{1/2}
+\]
+
+\[
+\alpha l = \frac{\pi}{2Q_i}
+\]
+
+substituting
+
+\[
+Z_{res} = \frac{Z_0}{\pi/(2Q_i) + \pi \Delta \omega_{1/2}/\omega_{1/2}} = \frac{2 Z_0 Q_i / \pi}{1 + 2 Q_i \Delta \omega_{1/2} / \omega_{1/2}} 
+\]
+
+\[
+Z_{res} = \frac{2 Z_0 Q_i/\pi}{1 + 4Q_i^2dx^2} - i \frac{4 Z_0 Q_i^2 dx/\pi}{1 + 4Q_i^2 dx^2}
+\]
+
+where
+
+\[
+dx = \frac{\Delta \omega_{1/2}}{\omega_{1/2}}
+\]
+
+With the series input capacitor, the total impedance becomes
+
+\[
+Z_t =  \frac{2 Z_0 Q_i/\pi}{1 + 4Q_i^2dx^2} - i \left( \frac{4 Z_0 Q_i^2 dx/\pi}{1 + 4Q_i^2 dx^2} + \frac{1}{\omega C_c}\right)
+\]
+
+We can now look to express the total impedance as a function of the coupling Q, $Q_c$ as well.
+
+\[
+Q_c = \omega R^* C_{res}
+\]
+
+Where $R^*$ is the transformed input impedance of the coupling capacitor.
+
+\[
+R^* \approx \frac{1}{\omega^2 C_c^2 Z_0} 
+\]
+
+\[
+Q_c = \frac{C_{res}}{\omega C_c^2 Z_0}
+\]
+
+The capacitance of the resonator can be expressed in terms of the resonator impedance
+
+\[
+C_{res} = {\mathcal C} L/2 = \frac{\sqrt{ {\mathcal L} {\mathcal C}}}{ \sqrt{ {\mathcal L} / {\mathcal C} }} L/2 = \frac{L}{ 2 v_p Z_{res}}
+\]
+
+Where ${\mathcal L}$ and ${\mathcal C}$ are the inductance and capacitance per unit length of the resonator, respectively.
+
+\[
+Q_c = \frac{L}{2 v_p \omega C_c^2 Z_0 Z_{res}}
+\]
+
+\[
+\begin{array}{cc}
+L = \lambda / 2 & v_p = \lambda \omega / 2 \pi n
+\end{array}
+\]
+
+\[
+Q_c = \frac{\lambda 2 \pi n}{4 \lambda \omega^2 C_c^2 Z_0 Z_{res}} = \frac{\pi n}{2 \omega^2 C_c^2 Z_0 Z_{res}}
+\]
+
+This result agrees when considering an equivalent circuit model as in Pozar.
+
+Very close to resonance, we can approximate $Z_{res} \approx Z_0$ which yields
+
+\[
+\frac{1}{\omega C_c} = Z_0 \sqrt{ \frac{2Q_c}{\pi} }
+\]
+
+Plugging this back into the equation for total impedance
+
+\[
+Z_t =  \frac{2 Z_0 Q_i/\pi}{1 + 4Q_i^2dx^2} - i \left( \frac{4 Z_0 Q_i^2 dx/\pi}{1 + 4Q_i^2 dx^2} + Z_0 \sqrt{\frac{2 Q_c}{\pi}} \right)
+\]
+
+Now, because of the capacitively loading, we expect the resonance of the system to be below the bare resonance of the cavity. At resonance, the imaginary part of the impedance also vanishes yielding the difference between the bare and loaded frequency
+
+\[
+\frac{4 Q_i^2 dx/\pi}{1 + 4Q_i^2 dx^2} = -\sqrt{\frac{2Q_c}{\pi}}
+\]
+
+taking the $Q_i^2$ term in the denominator to be dominant
+
+\[
+\frac{1}{\pi dx} = -\sqrt{\frac{2Q_c}{\pi}}
+\]
+
+\[
+\frac{\omega_l - \omega_{1/2} }{\omega_{1/2}} = -\sqrt{\frac{1}{2 \pi Q_c}}
+\]
+
+We now define
+
+\[
+\Delta \omega ' = \omega - \omega_l
+\]
+
+\[
+\frac{\Delta \omega_{1/2} }{\omega_{1/2}} = \frac{\Delta \omega'}{\omega_{1/2}} + \frac{\omega_l - \omega_{1/2}}{\omega_{1/2}} =  \frac{\Delta \omega'}{\omega_{1/2}} - \sqrt{\frac{1}{2 \pi Q_c}}
+\]
+
+Substituting this back into the impedance
+
+\[
+Z_t =  \frac{2 Z_0 Q_i/\pi}{1 + 4Q_i^2 \left( \frac{\Delta \omega'}{\omega_{1/2}} - \sqrt{\frac{1}{2 \pi Q_c}}\right)^2} - i \left( \frac{4 Z_0 Q_i^2 \left( \frac{\Delta \omega'}{\omega_{1/2}} - \sqrt{\frac{1}{2 \pi Q_c}}\right)/\pi}{1 + 4Q_i^2 \left( \frac{\Delta \omega'}{\omega_{1/2}} - \sqrt{\frac{1}{2 \pi Q_c}}\right)^2} + Z_0 \sqrt{\frac{2 Q_c}{\pi}} \right)
+\]
+
+In order to simplify, we evaluate where $\Delta \omega '$ is small, once again taking the $Q_i^2$ term to be dominant
+
+\[
+Z_t = \frac{ 2Z_0 Q_i / \pi}{4Q_i^2 / 2\pi Q_c} - i \left( \frac{4 Z_0 Q_i^2/\pi \left( \frac{\Delta \omega'}{\omega_{1/2}} - \sqrt{\frac{1}{2 \pi Q_c}}\right)}{4Q_i^2/2\pi Q_c} + Z_0\sqrt{\frac{2Q_c}{\pi}} \right)
+\]
+
+\[
+Z_t = Z_0 \frac{Q_c}{Q_i} - i 2 Z_0 Q_c dx'
+\]
+
+where the substitution $\omega_{1/2} \rightarrow \omega_l$ has been made and
+
+\[
+dx' = \frac{\omega - \omega_l}{\omega_l}
+\]
+
+Now, $S_{11}$ for a shunt impedance is
+
+\[
+S_{11} = \frac{Z/Z_0 -1}{Z/Z_0  + 1}
+\]
+
+\[
+S_{11} = \frac{ (Q_c - Q_i)/Q_i - i 2 Q_c dx'}{ (Q_c + Q_i)/Q_i + i 2 Q_c dx'}
+\]
+
+\[
+S_{11} = \frac{Q_c - Q_i}{Q_c + Q_i} \left( \frac{1 - i 2 \frac{Q_c Q_i}{Q_c - Q_i} dx'}{1 + 2 i \frac{Q_c Q_i}{Q_c + Q_i} dx' } \right)
+\]
+
+At dx' = 0
+
+\[
+S_{11} = S_{11}^{min} =  \frac{Q_c - Q_i}{Q_c + Q_i}
+\]
+
+defining
+
+\[
+Q' = \frac{Q_i Q_c}{Q_c - Q_i}
+\]
+
+\[
+Q = \frac{Q_i Q_c}{Q_c + Q_i}
+\]
+
+\[
+S_{11} = S_{11}^{min} \left( \frac{1 - i 2 Q' dx'}{1 + i 2 Q dx'} \right)
+\]
+
+
+Notes:
+
+I have followed the same reasoning as was done in Mazin's thesis for his derivation of a shunted quarter wave resonator. Fitting with this equation is a bit cumbersome as $10 \log(|S_{11}|^2)$ is symmetric about interchange of $Q_c$ and $Q_i$. This forces the fitting routing to not be able to disseminate between the two when calculating. Different runs on the same data set will yield the same set of Q values but these values are randomly assigned.
+
+
+
+
+
+
+
+
+\end{document}

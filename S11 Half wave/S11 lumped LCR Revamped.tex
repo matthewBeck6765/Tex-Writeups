@@ -1,0 +1,66 @@
+
+\documentclass[12pt]{article}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+\begin{document}
+\setlength{\parindent}{0 pt}
+\begin{center}
+Parallel LCR Resonator S11 rework
+\end{center}
+
+\[
+Z_{r} = \frac{R_{r}}{1 + 2iQ_r x}
+\]
+
+\[
+Z_{r} = \frac{R_{r}}{1 + 4Q_r^2 x^2} - \frac{2 i R_r Q_r x}{1 + 4 Q_r^2 x^2}
+\]
+
+\[
+R_t =\frac{1 + \omega^2 C_c^2 R_l^2}{\omega^2 C_c^2 R_l}
+\]
+
+\[
+Q_c = \omega R_t C
+\]
+
+\[
+R_t = \frac{Q_c}{\omega C} = \frac{Q_c R_{r}}{Q_{r}}
+\]
+
+\[
+Z_0 \equiv R_l \rightarrow R_t
+\]
+
+\[
+S_{11} = \frac{Z_{r} - R_t}{Z_{r} + R_t}
+\]
+
+\[
+S_{11} = \frac{  \frac{R_{r}}{1 + 4Q_r^2 x^2} - \frac{Q_c R_{r}}{Q_{r}} - \frac{2 i R_r Q_r x}{1 + 4  Q_r^2 x^2}}{  \frac{R_{r}}{1 + 4Q_r^2 x^2} + \frac{Q_c R_{r}}{Q_{r}} - \frac{2 i R_r Q_r x}{1 + 4  Q_r^2 x^2}}
+\]
+
+Factor out all $R_r$'s
+
+\[
+S_{11} = \frac{  \frac{1}{1 + 4Q_r^2 x^2} - \frac{Q_c }{Q_{r}} - \frac{2 i  Q_r x}{1 + 4 Q_r^2 x^2}}{  \frac{1}{1 + 4Q_r^2 x^2} + \frac{Q_c }{Q_{r}} - \frac{2 i R_r  x}{1 + 4 Q_r^2 x^2}}
+\]
+
+factor out $\frac{1}{1 + 4Q_r^2 x^2}$
+
+\[
+S_{11} = \frac{1 - \frac{Q_c}{Q_r}(1 + 4Q_r^2 x^2) - 2iQ_r x}{1 + \frac{Q_c}{Q_r}(1 + 4Q_r^2 x^2) - 2iQ_r x}
+\]
+
+\[
+S_{11} = \frac{1 - (\frac{Q_c}{Q_r} + 4Q_cQ_r x^2) - 2iQ_rx}{1 + (\frac{Q_c}{Q_r} + 4 Q_c Q_r x^2) - 2iQ_rx}
+\]
+
+
+\end{document}

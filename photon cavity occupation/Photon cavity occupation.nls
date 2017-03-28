@@ -1,0 +1,28 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\kappa_c$}]\begingroup Photon loss rate due to leakage\nomeqref {0}
+		\nompageref{1}
+  \item [{$\kappa_i$}]\begingroup Photon loss rate due to internal dissipation\nomeqref {0}
+		\nompageref{1}
+  \item [{$\kappa_T$}]\begingroup Total photon loss rate\nomeqref {0}
+		\nompageref{1}
+  \item [{$\omega_r$}]\begingroup Resonant cavity frequency\nomeqref {0}
+		\nompageref{1}
+  \item [{$P_\text{App}$}]\begingroup Applied power at input of resonator\nomeqref {0}
+		\nompageref{1}
+  \item [{$P_\text{cav}$}]\begingroup Cavity photon power\nomeqref {0}
+		\nompageref{1}
+  \item [{$P_\text{in}$}]\begingroup Power leaking into cavity\nomeqref {0}
+		\nompageref{1}
+  \item [{$P_\text{out}$}]\begingroup Power leaking out of cavity\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_c$}]\begingroup Coupling quality factor\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_i$}]\begingroup Internal quality factor\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_T$}]\begingroup Total quality factor\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}

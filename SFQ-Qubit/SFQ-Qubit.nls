@@ -1,0 +1,19 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\omega_0$}]\begingroup Angular frequency\nomeqref {0}
+		\nompageref{1}
+  \item [{$C_c^\text{Driver}$}]\begingroup Coupling capacitance between CPW resonator and SFQ driver\nomeqref {0}
+		\nompageref{1}
+  \item [{$L_c$}]\begingroup Coupling inductance between resonator and feedline\nomeqref {0}
+		\nompageref{1}
+  \item [{$Q_c^\text{ind}$}]\begingroup Inductive coupling quality factor\nomeqref {0}
+		\nompageref{1}
+  \item [{$S$}]\begingroup CPW Gap width\nomeqref {0}\nompageref{1}
+  \item [{$W$}]\begingroup CPW Center trace width\nomeqref {0}
+		\nompageref{1}
+  \item [{$Z_\text{CPW}$}]\begingroup CPW Impedance\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}

@@ -1,0 +1,56 @@
+
+\documentclass[12pt, reqno]{amsart}
+\usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
+\geometry{a4paper} % or letter or a5paper or ... etc
+% \geometry{landscape} % rotated page geometry
+
+% See the ``Article customise'' template for come common customisations
+
+\usepackage{braket}
+\usepackage{amsmath}
+
+\title{cQED Problems}
+\author{Matthew Beck}
+\date{March 27, 2017} % delete this line to display the current date
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+\section{Prove $e^{i\delta} \ket{n} = \ket{n+1}$}
+%\subsection{}
+
+Beginning with the commutation relation $[\hat{\delta},\hat{n}] = i$ and $\hat{n} = \frac{1}{i}\frac{\partial}{\partial \delta}$
+
+\begin{align}
+[e^{i\hat{\delta}},\hat{n}] \ket{\psi} &= (e^{i\hat{\delta}}\hat{n} - \hat{n}e^{i\hat{\delta}})\ket{\psi} \\
+&= e^{i\hat{\delta}} \frac{1}{i}\frac{\partial \ket{\psi}}{\partial \delta} - e^{i\hat{\delta}} \frac{1}{i}\frac{\partial \ket{\psi}}{\partial \delta} - e^{i \hat{\delta}} \ket{\psi} \\
+&=  - e^{i \hat{\delta}} \ket{\psi} \label{eqn3}
+\end{align}
+
+We can now use the results of (\ref{eqn3}) we can find $\hat{n}e^{i\hat{\delta}}\ket{n}$
+
+\begin{align}
+\hat{n}e^{i\hat{\delta}}\ket{n} &= \hat{n}e^{i\hat{\delta}}\ket{n} -e^{i\hat{\delta}} \hat{n}\ket{n} + e^{i\hat{\delta}} \hat{n}\ket{n} \\
+&= [\hat{n}, e^{i\hat{\delta}}] + e^{i\hat{\delta}} \hat{n}\ket{n} \\
+&= e^{i \hat{\delta}} \ket{\psi}  + e^{i\hat{\delta}} \hat{n}\ket{n} \\
+&= e^{i \hat{\delta}} \ket{\psi}  + e^{i\hat{\delta}} n\ket{n} \\
+&= (n+1) e^{i\hat{\delta}}\ket{n} \label{eqn8}
+\end{align}
+
+We can equate (\ref{eqn8}) as
+
+\begin{align}
+(n+1) e^{i\hat{\delta}}\ket{n} \equiv \hat{n} \ket{n+1}
+\end{align}
+
+which inherently defines
+
+\begin{align}
+ e^{i\hat{\delta}}\ket{n} = \ket{n+1}
+\end{align}
+
+
+\end{document}

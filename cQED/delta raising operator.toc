@@ -1,0 +1,2 @@
+\contentsline {section}{\tocsection {}{1}{Prove $e^{i\delta } \mathinner {|{n}\delimiter "526930B } = \mathinner {|{n+1}\delimiter "526930B }$}}{1}
+\contentsline {subsection}{\tocsubsection {}{1.1}{}}{1}

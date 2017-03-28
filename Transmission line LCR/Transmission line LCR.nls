@@ -1,0 +1,28 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\alpha$}]\begingroup Attenuation constant\nomeqref {0}
+		\nompageref{1}
+  \item [{$\beta$}]\begingroup Propagation constant\nomeqref {0}
+		\nompageref{1}
+  \item [{$\omega$}]\begingroup Frequency\nomeqref {0}\nompageref{1}
+  \item [{$\omega_0$}]\begingroup Resonant cavity frequency\nomeqref {0}
+		\nompageref{1}
+  \item [{$C$}]\begingroup Equivalent capacitance\nomeqref {0}
+		\nompageref{1}
+  \item [{$C'$}]\begingroup Capacitance per unit length\nomeqref {0}
+		\nompageref{1}
+  \item [{$L$}]\begingroup Equivalent Inductance\nomeqref {0}
+		\nompageref{1}
+  \item [{$l$}]\begingroup Resonator length\nomeqref {0}\nompageref{1}
+  \item [{$L'$}]\begingroup Inductance per unit length\nomeqref {0}
+		\nompageref{1}
+  \item [{$R$}]\begingroup Equivalent Resistance\nomeqref {0}
+		\nompageref{1}
+  \item [{$Z_0$}]\begingroup Characteristic Impedance of transmission line\nomeqref {0}
+		\nompageref{1}
+  \item [{$Z_{\text{in}}$}]\begingroup Impedance looking into the transmission line\nomeqref {0}
+		\nompageref{1}
+
+\end{thenomenclature}
